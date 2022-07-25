@@ -1,0 +1,1167 @@
+<style>
+    @font-face {
+        font-family: 'linotype_didotbold';
+        src: url('/content/dam/cals_vt_edu/sesqui/fonts/didotlh-bold.woff2') format('woff2'),
+             url('/content/dam/cals_vt_edu/sesqui/fonts/didotlh-bold.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+
+    }
+    .vt-subnav-droplist-control {
+        background:white !important;
+        color:black !important;
+    }
+    .vt-subnav-droplist-control svg {
+        color:#E87722;
+    }
+    .gateway .vt-breadcrumbs-item:not(.vt-breadcrumbs-parentorg):first-of-type .vt-breadcrumbs-link, .gateway .vt-breadcrumbs-item:not(.vt-breadcrumbs-parentorg):last-of-type .vt-breadcrumbs-link {
+        background-color:transparent !important;
+        color:black !important;
+    }
+    span.breadcrumb-slash {
+        color: black !important;
+    }
+    #vt_navtrail > li:nth-child(1) > a {
+        padding-left:0;
+    }
+    .vt-page-path, .vt-page-info {
+        background: #eeecef;
+    }
+    .vt-page-title {
+        display:none;
+    }
+    #vt_one_content_area {
+        background:#861F41;
+    }
+    .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+        color:white;
+    }
+
+    #vt_body_col > div > div > div.text.parbase.section {
+        margin-bottom:calc(5em);
+        margin-left:17.5%;
+        margin-right:17.5%;
+    }
+
+    /* Give this an id later */
+    @media screen and (min-width: 768px){
+        #vt_no_rb div[class$="-body"]>.vt-bodycol-content>.rawhtml>.vt-rawhtml {
+            margin:0;
+        }
+    }
+
+    #calsBlocks .container-fluid {
+        overflow:visible;
+    }
+
+    .overlay {
+        filter: brightness(70%);
+    }
+    #calsBlock-lg-feature {
+        min-height:750px;
+        color:white;
+    }
+
+
+    .feature:not(.blank) {
+        background-size:150% !important;
+        background-position-x: 50% !important;
+        background-position-y: 50% !important;
+        padding:0;
+        cursor:pointer;
+    }
+
+    .feature h4 {
+        padding-right:20px;
+    }
+    .paragraph-container {
+        position:relative;
+        height:100%;
+        width:100%;
+        z-index:3;
+        min-height:295px;
+        top:0;
+        position:absolute;
+    }
+    .overlay {
+        position:relative;
+        height:100%;
+        width:100%;
+        z-index:2;
+        opacity:.8;
+        min-height:300px;
+        transition:.75s all ease;
+    }
+    .feature:not(.blank):hover .overlay {
+        opacity:0;
+    }
+    .feature:not(.blank):hover .img {
+        filter:unset !important;
+    }
+    .feature:not(.blank):hover h4,  .feature:not(.blank):hover h2 {
+        display:none;
+    }
+
+    .paragraph-container h4, .paragraph-container h2 {
+        position:absolute;
+        color:white;
+        line-height:1.15;
+        bottom:0;
+        margin-bottom:20px;
+        width:calc(100% - 20px);
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33);
+        padding-right:30px;
+        font-family:linotype_didotbold;
+    }
+
+    #calsBlock-lg-feature .paragraph-container, #calsBlock-md-feature .paragraph-container {
+        padding:30px !important;
+        padding-right:40px !important;
+    }
+
+    #calsBlock-lg-feature .paragraph-container h2 {
+        top:0;
+        margin-top:30px;
+    }
+
+
+    #calsBlocks > div > div:first-of-type {
+        width:calc(100% + 100px);
+    }
+    #calsBlocks > div > div:first-of-type > div:first-of-type {
+        width:calc(100% - 100px);
+    }
+    #calsBlocks > div > div:nth-of-type(2){
+        min-height:250px;
+        position:relative;
+        z-index:2;
+        margin-top:-300px;
+        width:calc(100% + 50px);
+        left:-50px;
+    }
+    .sm-block {
+        min-width:300px;
+        max-width:300px;
+        min-height:300px;
+        max-height:300px;
+    }
+    #calsBlock-md-Feature {
+        min-width:600px;
+        max-width:600px;
+        min-height:600px;
+        max-height:600px;
+    }
+    .quad > div {
+        float:left;
+    }
+    .paragraph-container {
+        padding:15px;
+    }
+
+    #calsBlocks > div > div:nth-child(1) > div.col-md-4 > div {
+        position:absolute;
+        bottom:333px;
+        padding:30px;
+        width:calc(100% - 30px);
+    }
+
+    button.dropdown-toggle {
+        margin-bottom:20px;
+    }
+    .dropdown-toggle {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        border: none;
+        overflow: hidden;
+    }
+    .dropdown-toggle span {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        vertical-align: middle;
+        margin-right: .255em;
+        margin-top: -5px;
+    }
+    .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: .255em;
+        vertical-align: .255em;
+        content: "";
+        border-top: .3em solid;
+        border-right: .3em solid transparent;
+        border-bottom: 0;
+        border-left: .3em solid transparent;
+    }
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1000;
+        display: none;
+        float: left;
+        min-width: 10rem;
+        padding: .5rem 0;
+        margin: .125rem 0 0;
+        font-size: 1rem;
+        color: #000;
+        text-align: left;
+        list-style: none;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid rgba(0,0,0,.15);
+        border-radius: 2px;
+        -webkit-box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+        box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 18%);
+        width:100%;
+    }
+    #calsBlocks button {
+        padding: 15px 30px !important;
+        background-color:transparent !important;
+        color: white !important;
+        border: 2px solid #e87722 !important;
+        width:100%;
+    }
+
+
+    .dropdown-item {
+        transition: all .2s ease;
+    }
+    .dropdown-item:focus, .dropdown-item:hover {
+       background: #eeecef;
+       color:#e87722; 
+    }
+    
+    #calsBlocks button:hover  {
+        background: #e87722 !important;
+        color:white !important;
+    }
+    #calsBlocks button svg {
+        margin-right:8px;
+    }
+
+    span.tag {
+        font-family: acherus;
+        text-transform: uppercase;
+        font-size: 18px;
+        display:inline-block;
+    }
+
+    span.tag:after, .sm-block:not(.blank) h4:after {
+        display: block;
+        width: 40px;
+        height: 2px;
+        background-color: #ddd;
+        content: "";
+        margin-top: 15px;
+        margin-bottom:20px;
+    }
+    .sm-block h4:after {
+        margin-bottom:0px !important; 
+        height:1px !important;
+    }
+    span.subtext {
+        font-family:Acherus,sans-serif;
+        font-size:16px;
+        line-height:1.375;
+        display:inline-block;
+        margin-top:15px;
+        padding-right:30px;
+    }
+    #calsBlock-md-feature span.subtext, #calsBlock-lg-feature span.subtext {
+        font-size:20px !important;
+        line-height:1.5 !important;
+    }
+    #cals-150-container {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        overflow: hidden;
+        width: 100%;
+    }
+    #cals-150-container img {
+        top: 50%;
+        position: absolute;
+        transform: translateY(-50%);
+        max-width:250px;
+    }
+    @keyframes cals-spin {
+         0% {
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
+    .cals-spin {
+        -webkit-animation-name: cals-spin;
+        animation-name: cals-spin;
+        -webkit-animation-delay: 0;
+        animation-delay: 0;
+        -webkit-animation-direction: normal;
+        animation-direction: normal;
+        -webkit-animation-duration: .33s;
+        animation-duration: .33s;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+    }
+
+    .jx-arrow, .jx-control {
+        color:#e87722;
+    }
+
+    .jx-label {
+        font-family:Acherus, sans-serif;
+    }
+
+    .cube {
+        width: 100%;
+        height:100%;
+        position: absolute;
+        top:0;
+        -webkit-transform-style: preserve-3d;
+        -webkit-transform: translateZ(-100px);
+        -webkit-transition: -webkit-transform 1s;
+        cursor:pointer;
+    }
+    .cube figure {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden;
+        margin:0;
+    }
+
+    .front, .back, .top, .bottom {
+        background: #7c7c7c;
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:center;
+        padding:20px;
+    }
+    .cube figure .img{
+        background-size:cover !important;
+        background-repeat:no-repeat !important;
+        min-height:100%;
+        min-width:100%;
+        position:absolute;
+        background-position:center !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .cube figure .img:not(#calsBlock-md-feature .img):not(#calsBlock-lg-feature .img) {
+         filter:contrast(1.15) grayscale(1);
+    }
+    .cube figure .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .caption {
+        font-size: small;
+        padding-left: 40px;
+        padding-top: 10px;
+        width:75%;
+    }
+
+
+    @media only screen and (max-width: 1522px){
+        #calsBlock-md-feature h2 {
+            font-size:30.375px;
+        }
+    }
+
+    @media only screen and (max-width:1437px){
+        .blank {
+            display:none;
+        }
+        #calsBlock-md-feature {
+            height:300px;
+            width:300px;
+            max-height:300px;
+            max-width:300px;
+        }
+        #calsBlock-md-feature .paragraph-container {
+            left:0;
+            padding:15px;
+        }
+        #calsBlock-md-feature span.subtext {
+            font-size:16px !important;
+        }
+        #calsBlock-md-feature h2:after {
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: #ddd;
+            content: "";
+            margin-top: 15px;
+        }
+    }
+        
+
+    @media only screen and (max-width: 1199px){
+        #calsBlock-md-feature h2 {
+            font-size:25.3125px;
+        }
+        #calsBlock-md-feature span.subtext {
+            font-size:16px !important;
+        }
+    }
+
+
+    
+    @media only screen and (max-width: 1065px) {
+        #calsBlock-lg-feature {
+            display:none;
+        }
+        #calsBlocks > div > div:nth-of-type(2) {
+            min-height:unset;
+            position:unset;
+            z-index:unset;
+            margin-top:unset;
+            width:unset;
+            left:unset;
+        }
+        .sm-block, #calsBlock-md-feature {
+            min-width:33.33333333333%;
+            min-height:250px;
+            max-width:33.33333333333%;
+            max-height:250px;
+        }
+        .overlay, .paragraph-container {
+            min-height:250px;
+        }
+        #calsBlocks > div > div:nth-child(2) > div:nth-child(8), #calsBlocks > div > div:nth-child(2) > div:nth-child(9) {
+            display:none;
+        }
+        #calsBlocks > div > div:first-of-type > div:first-of-type{
+            max-width:100%;
+            flex:unset;
+        }
+        #calsBlocks > div > div:nth-child(1) > div.col-md-4 > div {
+            max-width:100%;
+            width:100%;
+            position:unset !important;
+            bottom:unset !important;
+        }
+        #calsBlocks > div > div:nth-child(1) > div.col-md-4 > div > p {
+            text-align:center;
+        }
+    }
+    @media only screen and (max-width: 800px) {
+        #calsBlocks > div > div:nth-of-type(2) {
+            left:-20px;
+        }
+        .sm-block, #calsBlock-md-feature {
+            min-width:100%;
+            max-width:100%;
+        }
+        .overlay, .paragraph-container {
+            min-height:250px;
+        }
+    }
+    @media only screen and (max-width: 768px){
+        #calsBlocks > div > div:nth-child(1) > div.col-md-4 > div > p {
+            font-size:14.4px !important;
+        }
+    }
+</style>
+<style>
+    div.juxtapose{width:100%;font-family:Helvetica,Arial,sans-serif}div.jx-slider{width:100%;height:100%;position:relative;overflow:hidden;cursor:pointer;color:#f3f3f3}div.jx-handle{position:absolute;height:100%;width:40px;cursor:col-resize;z-index:15;margin-left:-20px}.vertical div.jx-handle{height:40px;width:100%;cursor:row-resize;margin-top:-20px;margin-left:0}div.jx-control{height:100%;margin-right:auto;margin-left:auto;width:3px;background-color:currentColor}.vertical div.jx-control{height:3px;width:100%;background-color:currentColor;position:relative;top:50%;transform:translateY(-50%)}div.jx-controller{position:absolute;margin:auto;top:0;bottom:0;height:60px;width:9px;margin-left:-3px;background-color:currentColor}.vertical div.jx-controller{height:9px;width:100px;margin-left:auto;margin-right:auto;top:-3px;position:relative}div.jx-arrow{position:absolute;margin:auto;top:0;bottom:0;width:0;height:0;transition:all .2s ease}.vertical div.jx-arrow{position:absolute;margin:0 auto;left:0;right:0;width:0;height:0;transition:all .2s ease}div.jx-arrow.jx-left{left:2px;border-style:solid;border-width:8px 8px 8px 0;border-color:transparent currentColor transparent transparent}div.jx-arrow.jx-right{right:2px;border-style:solid;border-width:8px 0 8px 8px;border-color:transparent transparent transparent currentColor}.vertical div.jx-arrow.jx-left{left:0;top:2px;border-style:solid;border-width:0 8px 8px 8px;border-color:transparent transparent currentColor transparent}.vertical div.jx-arrow.jx-right{right:0;top:auto;bottom:2px;border-style:solid;border-width:8px 8px 0 8px;border-color:currentColor transparent transparent transparent}div.jx-handle:active div.jx-arrow.jx-left,div.jx-handle:hover div.jx-arrow.jx-left{left:-1px}div.jx-handle:active div.jx-arrow.jx-right,div.jx-handle:hover div.jx-arrow.jx-right{right:-1px}.vertical div.jx-handle:active div.jx-arrow.jx-left,.vertical div.jx-handle:hover div.jx-arrow.jx-left{left:0;top:0}.vertical div.jx-handle:active div.jx-arrow.jx-right,.vertical div.jx-handle:hover div.jx-arrow.jx-right{right:0;bottom:0}div.jx-image{position:absolute;height:100%;display:inline-block;top:0;overflow:hidden;-webkit-backface-visibility:hidden}.vertical div.jx-image{width:100%;left:0;top:auto}div.jx-image img{height:100%;width:auto;z-index:5;position:absolute;margin-bottom:0;max-height:none;max-width:none;max-height:initial;max-width:initial}.vertical div.jx-image img{height:auto;width:100%}div.jx-image.jx-left{left:0;background-position:left}div.jx-image.jx-left img{left:0}div.jx-image.jx-right{right:0;background-position:right}div.jx-image.jx-right img{right:0;bottom:0}.veritcal div.jx-image.jx-left{top:0;background-position:top}.veritcal div.jx-image.jx-left img{top:0}.vertical div.jx-image.jx-right{bottom:0;background-position:bottom}.veritcal div.jx-image.jx-right img{bottom:0}div.jx-image div.jx-label{font-size:1em;padding:.25em .75em;position:relative;display:inline-block;top:0;background-color:#000;background-color:rgba(0,0,0,.7);color:#fff;z-index:10;white-space:nowrap;line-height:18px;vertical-align:middle}div.jx-image.jx-left div.jx-label{float:left;left:0}div.jx-image.jx-right div.jx-label{float:right;right:0}.vertical div.jx-image div.jx-label{display:table;position:absolute}.vertical div.jx-image.jx-right div.jx-label{left:0;bottom:0;top:auto}div.jx-credit{line-height:1.1;font-size:.75em}div.jx-credit em{font-weight:700;font-style:normal}div.jx-image.transition{transition:width .5s ease}div.jx-handle.transition{transition:left .5s ease}.vertical div.jx-image.transition{transition:height .5s ease}.vertical div.jx-handle.transition{transition:top .5s ease}a.jx-knightlab{background-color:#000;background-color:rgba(0,0,0,.25);bottom:0;display:table;height:14px;line-height:14px;padding:1px 4px 1px 5px;position:absolute;right:0;text-decoration:none;z-index:10}a.jx-knightlab div.knightlab-logo{display:inline-block;vertical-align:middle;height:8px;width:8px;background-color:#c34528;transform:rotate(45deg);-ms-transform:rotate(45deg);-webkit-transform:rotate(45deg);top:-1.25px;position:relative;cursor:pointer}a.jx-knightlab:hover{background-color:#000;background-color:rgba(0,0,0,.35)}a.jx-knightlab:hover div.knightlab-logo{background-color:#ce4d28}a.jx-knightlab span.juxtapose-name{display:table-cell;margin:0;padding:0;font-family:Helvetica,Arial,sans-serif;font-weight:300;color:#fff;font-size:10px;padding-left:.375em;vertical-align:middle;line-height:normal;text-shadow:none}a.jx-knightlab:focus,div.jx-controller:focus,div.jx-image.jx-left div.jx-label:focus,div.jx-image.jx-right div.jx-label:focus{background:#eae34a;color:#000}a.jx-knightlab:focus span.juxtapose-name{color:#000;border:none}
+</style>
+<div id="calsBlocks">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div>
+                    <p style="font-size:18px">
+                        Click on a photo to see how our outreach has grown and developed over the past 150 years.
+                    </p>
+                    <button class="btn btn-secondary" id="shuffle">
+                        <span>
+                           <i class="fas fa-sync-alt"></i>Shuffle
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-8 feature" id="calsBlock-lg-feature">
+                <div class="cube" side="front">
+                    <figure class="front" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="back">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="top" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="bottom">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-12 sm-block feature">
+                <div class="cube" side="front">
+                    <figure class="front" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="back">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="top" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="bottom">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 sm-block feature">
+                <div class="cube" side="front">
+                    <figure class="front" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="back">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="top" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="bottom">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 sm-block feature">
+                <div class="cube" side="front">
+                    <figure class="front" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="back">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="top" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                    <figure class="bottom">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h4></h4>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-12 sm-block feature blank"></div>
+            <div class="col-md-6 feature" id="calsBlock-md-feature">
+                <div class="cube" side="front">
+                    <figure class="front" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="back">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="top" style="padding:0">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                    <figure class="bottom">
+                        <div class="img" role="img"></div>
+                        <div class="overlay"></div>
+                        <div class="paragraph-container">
+                            <h2></h2>
+                        </div>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-6 quad" style="padding:0">
+                <div class="col-md-6 sm-block feature quad-feature">
+                    <div class="cube" side="front">
+                        <figure class="front" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="back">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="top" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="bottom">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-6 sm-block feature quad-feature">
+                    <div class="cube" side="front">
+                        <figure class="front" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="back">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="top" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="bottom">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-6 sm-block feature quad-feature">
+                    <div class="cube" side="front">
+                        <figure class="front" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="back">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="top" style="padding:0">
+                            <div class="img" role="img" ></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="bottom">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-md-6 sm-block feature quad-feature">
+                    <div class="cube" side="front">
+                        <figure class="front" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="back">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="top" style="padding:0">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                        <figure class="bottom">
+                            <div class="img" role="img"></div>
+                            <div class="overlay"></div>
+                            <div class="paragraph-container">
+                                <h4></h4>
+                            </div>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(".vt-articleImage").html('<div class="juxtapose"><img src="/content/dam/cals_vt_edu/sesqui/middleburg-new-crop.png" data-label="" alt="Hutcheson Hall in color" /><img src="/content/dam/cals_vt_edu/sesqui/middleburg-old-crop.png" data-label="" alt="Hutcheson Hall in black and white" /></div>');
+    !function(t,e){var i={sliders:[],OPTIMIZATION_ACCEPTED:1,OPTIMIZATION_WAS_CONSTRAINED:2},r=["Large","Medium"];function s(t,e){var i=this;this.image=new Image,this.loaded=!1,this.image.onload=function(){i.loaded=!0,e._onLoaded()},this.image.src=t.src,this.image.alt=t.alt||"",this.label=t.label||!1,this.credit=t.credit||!1}function a(t,e){var i=this;this.image=new Image,this.loaded=!1,this.image.onload=function(){i.loaded=!0,e._onLoaded()},this.flickrID=this.getFlickrID(t.src),this.callFlickrAPI(this.flickrID,i),this.label=t.label||!1,this.credit=t.credit||!1}function n(t){if(t.naturalWidth&&t.naturalHeight)return{width:t.naturalWidth,height:t.naturalHeight};var e=new Image;return e.src=t.src,{width:e.width,height:e.height}}function o(t){return{width:n(t).width,height:n(t).height,aspect:function(){return this.width/this.height}}}function l(t,e){t.classList?t.classList.add(e):t.className+=" "+e}function d(t,e){t.className=t.className.replace(/(\S+)\s*/g,function(t,i){return i===e?"":t}).replace(/^\s+/,"")}function c(e,i){t.body.textContent?e.textContent=i:e.innerText=i}function p(t){return e.getComputedStyle?{width:parseInt(getComputedStyle(t).width,10),height:parseInt(getComputedStyle(t).height,10)}:(w=t.getBoundingClientRect().right-t.getBoundingClientRect().left,h=t.getBoundingClientRect().bottom-t.getBoundingClientRect().top,{width:parseInt(w,10)||0,height:parseInt(h,10)||0})}function g(t){return!!t.match(/flic.kr\/.+/i)||-1!=t.indexOf("flickr.com/photos/")}function m(e,i){if("string"==typeof i||"number"==typeof i)leftPercent=parseInt(i,10);else{var r=e.getBoundingClientRect(),s={top:r.top+t.body.scrollTop+t.documentElement.scrollTop,left:r.left+t.body.scrollLeft+t.documentElement.scrollLeft},a=e.offsetWidth,n=(o=i).pageX?o.pageX:o.touches?o.touches[0].pageX:o.clientX+t.body.scrollLeft+t.documentElement.scrollLeft;leftPercent=(n-s.left)/a*100}var o;return leftPercent}function u(e,i){if("string"==typeof i||"number"==typeof i)topPercent=parseInt(i,10);else{var r=e.getBoundingClientRect(),s={top:r.top+t.body.scrollTop+t.documentElement.scrollTop,left:r.left+t.body.scrollLeft+t.documentElement.scrollLeft},a=e.offsetHeight,n=(o=i).pageY?o.pageY:o.touches?o.touches[0].pageY:o.clientY+t.body.scrollTop+t.documentElement.scrollTop;topPercent=(n-s.top)/a*100}var o;return topPercent}a.prototype={getFlickrID:function(t){if(t.match(/flic.kr\/.+/i))return function(t){var e="123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ",i=e.length;if("string"!=typeof t)throw'"base58Decode" only accepts strings.';var r=0;for(;t;){var s=e.indexOf(t[0]);if(s<0)throw'"base58Decode" can\'t find "'+t[0]+'" in the alphabet: "'+e+'"';var a=t.length-1;r+=s*Math.pow(i,a),t=t.substring(1)}return r.toString()}(t.split("/").slice(-1)[0]);var e=t.indexOf("flickr.com/photos/")+"flickr.com/photos/".length,i=t.substr(e);return-1==i.indexOf("/")?null:(0===i.indexOf("/")&&(i=i.substr(1)),id=i.split("/")[1],id)},callFlickrAPI:function(t,e){var i="https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=d90fc2d1f4acc584e08b8eaea5bf4d6c&photo_id="+t+"&format=json&nojsoncallback=1",r=new XMLHttpRequest;r.open("GET",i,!0),r.onload=function(){if(r.status>=200&&r.status<400){data=JSON.parse(r.responseText);var t=e.bestFlickrUrl(data.sizes.size);e.setFlickrImage(t)}else console.error("There was an error getting the picture from Flickr")},r.onerror=function(){console.error("There was an error getting the picture from Flickr")},r.send()},setFlickrImage:function(t){this.image.src=t},bestFlickrUrl:function(t){for(var e={},i=0;i<t.length;i++)e[t[i].label]=t[i].source;for(var s=0;s<r.length;s++)if(r[s]in e)return e[r[s]];return t[0].source}};var f={animate:!0,showLabels:!0,showCredits:!0,makeResponsive:!0};function v(t,e,i){var r,n;for(r in this.selector=t,this.options={animate:!0,showLabels:!0,showCredits:!0,makeResponsive:!0,startingPosition:"50%",mode:"horizontal",callback:null},this.options)r in i&&(this.options[r]=r in f?"string"!=typeof(n=i[r])?Boolean(n):!("false"===n||""===n):i[r]);2==e.length?(g(e[0].src)?this.imgBefore=new a(e[0],this):this.imgBefore=new s(e[0],this),g(e[1].src)?this.imgAfter=new a(e[1],this):this.imgAfter=new s(e[1],this)):console.warn("The images parameter takes two Image objects."),this.imgBefore.credit||this.imgAfter.credit?this.options.showCredits=!0:this.options.showCredits=!1}v.prototype={updateSlider:function(t,e){var i,r;i=(i="vertical"===this.options.mode?u(this.slider,t):m(this.slider,t)).toFixed(2)+"%",leftPercentNum=parseFloat(i),r=100-leftPercentNum+"%",leftPercentNum>0&&leftPercentNum<100&&(d(this.handle,"transition"),d(this.rightImage,"transition"),d(this.leftImage,"transition"),this.options.animate&&e&&(l(this.handle,"transition"),l(this.leftImage,"transition"),l(this.rightImage,"transition")),"vertical"===this.options.mode?(this.handle.style.top=i,this.leftImage.style.height=i,this.rightImage.style.height=r):(this.handle.style.left=i,this.leftImage.style.width=i,this.rightImage.style.width=r),this.sliderPosition=i)},getPosition:function(){return this.sliderPosition},displayLabel:function(e,i){label=t.createElement("div"),label.className="jx-label",label.setAttribute("tabindex",0),c(label,i),e.appendChild(label)},displayCredits:function(){credit=t.createElement("div"),credit.className="jx-credit",text="<em>Photo Credits:</em>",this.imgBefore.credit&&(text+=" <em>Before</em> "+this.imgBefore.credit),this.imgAfter.credit&&(text+=" <em>After</em> "+this.imgAfter.credit),credit.innerHTML=text,this.wrapper.appendChild(credit)},setStartingPosition:function(t){this.options.startingPosition=t},checkImages:function(){return o(this.imgBefore.image).aspect()==o(this.imgAfter.image).aspect()},calculateDims:function(t,e){var i=o(this.imgBefore.image).aspect();return t?e=t/i:e&&(t=e*i),{width:t,height:e,ratio:i}},responsivizeIframe:function(t){return t.height<e.innerHeight?t.ratio>=1&&(this.wrapper.style.paddingTop=parseInt((e.innerHeight-t.height)/2)+"px"):t.height>e.innerHeight&&(t=this.calculateDims(0,e.innerHeight),this.wrapper.style.paddingLeft=parseInt((e.innerWidth-t.width)/2)+"px"),this.options.showCredits&&(t.height-=13),t},setWrapperDimensions:function(){var t=p(this.wrapper).width,i=p(this.wrapper).height,r=this.calculateDims(t,i);e.location===e.parent.location||this.options.makeResponsive||(r=this.responsivizeIframe(r)),this.wrapper.style.height=parseInt(r.height)+"px",this.wrapper.style.width=parseInt(r.width)+"px"},optimizeWrapper:function(t){var e=i.OPTIMIZATION_ACCEPTED;return this.imgBefore.image.naturalWidth>=t&&this.imgAfter.image.naturalWidth>=t?(this.wrapper.style.width=t+"px",e=i.OPTIMIZATION_WAS_CONSTRAINED):this.imgAfter.image.naturalWidth<t?this.wrapper.style.width=this.imgAfter.image.naturalWidth+"px":this.wrapper.style.width=this.imgBefore.image.naturalWidth+"px",this.setWrapperDimensions(),e},_onLoaded:function(){this.imgBefore&&!0===this.imgBefore.loaded&&this.imgAfter&&!0===this.imgAfter.loaded&&(this.wrapper=t.querySelector(this.selector),l(this.wrapper,"juxtapose"),this.wrapper.style.width=n(this.imgBefore.image).width,this.setWrapperDimensions(),this.slider=t.createElement("div"),this.slider.className="jx-slider",this.wrapper.appendChild(this.slider),"horizontal"!=this.options.mode&&l(this.slider,this.options.mode),this.handle=t.createElement("div"),this.handle.className="jx-handle",this.rightImage=t.createElement("div"),this.rightImage.className="jx-image jx-right",this.rightImage.appendChild(this.imgAfter.image),this.leftImage=t.createElement("div"),this.leftImage.className="jx-image jx-left",this.leftImage.appendChild(this.imgBefore.image),this.labCredit=t.createElement("a"),this.labCredit.setAttribute("href","https://juxtapose.knightlab.com"),this.labCredit.setAttribute("target","_blank"),this.labCredit.setAttribute("rel","noopener"),this.labCredit.className="jx-knightlab",this.labLogo=t.createElement("div"),this.labLogo.className="knightlab-logo",this.labCredit.appendChild(this.labLogo),this.projectName=t.createElement("span"),this.projectName.className="juxtapose-name",c(this.projectName,"JuxtaposeJS"),this.labCredit.appendChild(this.projectName),this.slider.appendChild(this.handle),this.slider.appendChild(this.leftImage),this.slider.appendChild(this.rightImage),this.slider.appendChild(this.labCredit),this.leftArrow=t.createElement("div"),this.rightArrow=t.createElement("div"),this.control=t.createElement("div"),this.controller=t.createElement("div"),this.leftArrow.className="jx-arrow jx-left",this.rightArrow.className="jx-arrow jx-right",this.control.className="jx-control",this.controller.className="jx-controller",this.controller.setAttribute("tabindex",0),this.controller.setAttribute("role","slider"),this.controller.setAttribute("aria-valuenow",50),this.controller.setAttribute("aria-valuemin",0),this.controller.setAttribute("aria-valuemax",100),this.handle.appendChild(this.leftArrow),this.handle.appendChild(this.control),this.handle.appendChild(this.rightArrow),this.control.appendChild(this.controller),this._init())},_init:function(){!1===this.checkImages()&&console.warn(this,"Check that the two images have the same aspect ratio for the slider to work correctly."),this.updateSlider(this.options.startingPosition,!1),!0===this.options.showLabels&&(this.imgBefore.label&&this.displayLabel(this.leftImage,this.imgBefore.label),this.imgAfter.label&&this.displayLabel(this.rightImage,this.imgAfter.label)),!0===this.options.showCredits&&this.displayCredits();var t=this;e.addEventListener("resize",function(){t.setWrapperDimensions()}),this.slider.addEventListener("mousedown",function(i){(i=i||e.event).preventDefault(),t.updateSlider(i,!0),animate=!0,this.addEventListener("mousemove",function(i){(i=i||e.event).preventDefault(),animate&&t.updateSlider(i,!1)}),this.addEventListener("mouseup",function(t){(t=t||e.event).preventDefault(),t.stopPropagation(),this.removeEventListener("mouseup",arguments.callee),animate=!1})}),this.slider.addEventListener("touchstart",function(i){(i=i||e.event).preventDefault(),i.stopPropagation(),t.updateSlider(i,!0),this.addEventListener("touchmove",function(i){(i=i||e.event).preventDefault(),i.stopPropagation(),t.updateSlider(event,!1)})}),this.handle.addEventListener("keydown",function(i){var r=(i=i||e.event).which||i.keyCode,s=parseFloat(this.style.left);if(37==r){s-=1;var a=parseFloat(this.style.left)-1;t.updateSlider(a,!1),t.controller.setAttribute("aria-valuenow",s)}if(39==r){s+=1;var n=parseFloat(this.style.left)+1;t.updateSlider(n,!1),t.controller.setAttribute("aria-valuenow",s)}}),this.leftImage.addEventListener("keydown",function(e){var i=e.which||e.keyCode;13!=i&&32!=i||(t.updateSlider("90%",!0),t.controller.setAttribute("aria-valuenow",90))}),this.rightImage.addEventListener("keydown",function(e){var i=e.which||e.keyCode;13!=i&&32!=i||(t.updateSlider("10%",!0),t.controller.setAttribute("aria-valuenow",10))}),i.sliders.push(this),this.options.callback&&"function"==typeof this.options.callback&&this.options.callback(this)}},i.makeSlider=function(t,e){void 0===e&&(e=i.sliders.length);var r=t,s=r.querySelectorAll("img"),a={};r.getAttribute("data-animate")&&(a.animate=r.getAttribute("data-animate")),r.getAttribute("data-showlabels")&&(a.showLabels=r.getAttribute("data-showlabels")),r.getAttribute("data-showcredits")&&(a.showCredits=r.getAttribute("data-showcredits")),r.getAttribute("data-startingposition")&&(a.startingPosition=r.getAttribute("data-startingposition")),r.getAttribute("data-mode")&&(a.mode=r.getAttribute("data-mode")),r.getAttribute("data-makeresponsive")&&(a.mode=r.getAttribute("data-makeresponsive")),specificClass="juxtapose-"+e,l(t,specificClass),selector="."+specificClass,r.innerHTML?r.innerHTML="":r.innerText="",slider=new i.JXSlider(selector,[{src:s[0].src,label:s[0].getAttribute("data-label"),credit:s[0].getAttribute("data-credit"),alt:s[0].alt},{src:s[1].src,label:s[1].getAttribute("data-label"),credit:s[1].getAttribute("data-credit"),alt:s[1].alt}],a)},i.scanPage=function(){for(var e=t.querySelectorAll(".juxtapose"),r=0;r<e.length;r++)i.makeSlider(e[r],r)},i.JXSlider=v,e.juxtapose=i,i.scanPage()}(document,window),!window.addEventListener&&function(t,e,i,r,s,a,n){t.addEventListener=e.addEventListener=i.addEventListener=function(t,e){var i=this;n.unshift([i,t,e,function(t){t.currentTarget=i,t.preventDefault=function(){t.returnValue=!1},t.stopPropagation=function(){t.cancelBubble=!0},t.target=t.srcElement||i,e.call(i,t)}]),this.attachEvent("on"+t,n[0][3])},t.removeEventListener=e.removeEventListener=i.removeEventListener=function(t,e){for(var i,r=0;i=n[r];++r)if(i[0]==this&&i[1]==t&&i[2]==e)return this.detachEvent("on"+t,n.splice(r,1)[0][3])},t.dispatchEvent=e.dispatchEvent=i.dispatchEvent=function(t){return this.fireEvent("on"+t.type,t)}}(Window.prototype,HTMLDocument.prototype,Element.prototype,0,0,0,[]);
+</script>
+<script>
+    $(".vt-articleImage").after("<p class='caption'>Above: Staff from the Middleburg Agricultural Research and Extension Center assist local growers, today and in the 1950s.</p>");
+
+    function shuffle(array){
+        var i = array.length,
+            j = 0,
+            temp; 
+
+        while (i--){
+            j = Math.floor(Math.random() * (i + 1));
+
+            temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+
+        return array;
+    }
+
+    var colors = ["#642667","#CE0058","#ED8B00","#508590","#003C71"];
+
+    var features = [{"old-photo":"/content/dam/cals_vt_edu/sesqui/4-h-tech-old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/4-h-tech-new.png","old-alt":"Man on a blue tractor pulling a trailer","new-alt":"Student in goggles doing electrical work and reading instructions","title":"4-H and STEM","subtitle":"Bringing the latest in technological innovation to Virginia's youth"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Labs%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/New%20Lab%20Photo.png","old-alt":"Man doing lab work","new-alt":"Woman in field measuring something with a digital meter in vines","title":"Alson H. Smith, Jr. AREC, then and now","subtitle":"One of our oldest ARECs through the years"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Grapes%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Grapes%20(New).png","old-alt":"Old black and white photo of grape bunch on vine","new-alt":"Color photo of grape bunch on vine","title":"Viticulture that ages as well as our wines","subtitle":"Cutting-edge research and outreach to grape growers"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Cooking%20demonstration%20in%201954.png","new-photo":"/content/dam/cals_vt_edu/sesqui/Cooking%20Class%20New%20Photo.png","old-alt":"Black and white photo of two men and three women grilling in aprons","new-alt":"Three women cooking in kitchen in aprons and with Extension nametags","title":"The art of cooking","subtitle":"A VCE cooking demonstration in 1954 versus today"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/VA%20Turkey%20Old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/VA%20Turkey%20New.png","old-alt":"Black and white photo of turkey","new-alt":"Turkey at CALS farm","title":"Poultry farming","subtitle":"Extension has helped farmers raise turkeys, chickens, and more"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Harvesting%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Harvesting%20New.png","old-alt":"Black and white photo of a man harvesting potatoes","new-alt":"Hands pulling potatoes out of the ground, one is cut in half","title":"Potato farming","subtitle":"We help Virginia potato producers grow"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Field%20photo%20old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/Field%20New.jpg","old-alt":"Rows of crops","new-alt":"Rows of crops, aerial view","title":"Building Virginia's future","subtitle":"We offer the building blocks that enhance the wellbeing of all Virginians"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Lettuce%20Field%20Old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/Lettuce%20Field%20New.png","old-alt":"Black and white photo of two men standing in rows of lettuce","new-alt":"A tractor driving through rows of lettuce with two men walking behind","title":"Lettuce keep going","subtitle":"We'll continue providing the resources of Virginia's land-grant universities"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Shenandoah%20Farm%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Shennandoah%20New.png","old-alt":"Black and white photo of Shenandoah farm","new-alt":"Photo of fields in the Shenandoah Valley with hills behind","title":"Up and down the Valley","subtitle":"Extension has offices throughout the Shenandoah Valley and the Commonwealth"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Wheat%20field%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Wheat%20Field%20(New).png","old-alt":"Black and white photo of two men standing in a wheat field","new-alt":"Photo of a man standing in a wheat field with a clipboard","title":"Helping improve one of Virginia's oldest crops","subtitle":"We partner with growers to help get quality grains to market"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Tractor%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/New%20Tractor.png","old-alt":"Black and white photo of man on a tractor","new-alt":"Woman driving a tractor and looking behind her","title":"Pulling Virginia forward","subtitle":"We've led the way for a century and a half"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Cown%20Farm%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Cow%20Farm%20New.png","old-alt":"Black and white photo of a herd of cows with a fence behind","new-alt":"Herd of cows from above","title":"Livestock farming","subtitle":"From beef and dairy cattle to sheep and goats"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/MiddleBurg%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Middleburg%20New.png","old-alt":"Black and white photo of a group of men standing together and looking at a field in Middleburg","new-alt":"Group of men and women standing in a field in Middleburg and discussing","title":"Extension in Middleburg","subtitle":"Assisting horse owners in Virginia's horse country"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Forestry%20Project%20in%201957.png","new-photo":"/content/dam/cals_vt_edu/sesqui/Trees%20New.png","old-alt":"Black and white photo of a boy standing and touching the top of a small pine tree","new-alt":"Man standing in the middle of a pine forest smiling and carrying digital equipment","title":"Forestry","subtitle":"Educating Virginia on how to conserve and repair our woodlands"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Sheep%20Farm%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Sheep%20Farm%20(New).png","old-alt":"Black and white photo of three men with sheep herd","new-alt":"Photo of a sheep herd in pen","title":"Sheep farming","subtitle":"Virginia has always had everything farmers need for sheep to thrive"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Horse%20Grazing%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/New%20Horse%20Grazing.png","old-alt":"Black and white photo of a man with a show horse","new-alt":"Two girls standing with a horse","title":"Horse power","subtitle":"Our 4-H Horse and Pony program teaches equine selection, nutrition, management, and horsemanship."},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Green%20House%20(Old).png","new-photo":"/content/dam/cals_vt_edu/sesqui/Green%20House%20New.png","old-alt":"Black and white photo of a man in apron reading papers in a greenhouse","new-alt":"Woman tending plants in a greenhouse","title":"Nurseries and greenhouses","subtitle":"Our outreach extends to growers inside and out"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Flower%20garden%20old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/master-gardener-new.png","old-alt":"Black and white photo of J. Fishburn flower garden","new-alt":"Photo of women from Master Gardeners working in a flower garden","title":"Master Gardening","subtitle":"The Master Gardeners program has been a staple of VCE for decades"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/Farmers%20Market%20Old.png","new-photo":"/content/dam/cals_vt_edu/sesqui/Farmers%20Market%20New.png","old-alt":"Photo of two women looking through corn at a farmer's market","new-alt":"Photo of three girls looking through tomatoes at a farmers market","title":"Shopping local","subtitle":"Virginia residents have long enjoyed local produce at the farmer's market"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/canning.png","new-photo":"/content/dam/cals_vt_edu/sesqui/canning-new.png","old-alt":"Black and white photo of two women canning in a kitchen","new-alt":"Jars of canned food","title":"Canning lessons, then and now","subtitle":"One of our most popular Extension publications"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/feeding-chickens.png","new-photo":"/content/dam/cals_vt_edu/sesqui/chickens-new.png","old-alt":"Black and white photo of woman feeding chickens in her backyard","new-alt":"Chickens in a backyard with coop and house behind","title":"Backyard chickens","subtitle":"Extension has been a great support for homesteaders urban and rural"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/meat-demonstration.png","new-photo":"/content/dam/cals_vt_edu/sesqui/meat-new.png","old-alt":"Black and white photo of a group of men and women standing behind a table with meat on it","new-alt":"Men and women in aprons and helmets in meat lab with meat on table in front","title":"Meat demonstration","subtitle":"From farm to table, Extension has been a hub for teaching and research"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/soil-conservation.png","new-photo":"/content/dam/cals_vt_edu/sesqui/soil-conservation-new.png","old-alt":"Black and white photo of man and woman hoeing and gardening in field","new-alt":"Photo of two hands open holding soil","title":"Soil conservation","subtitle":"The foundation of Virginia's agriculture"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/4-h.png","new-photo":"/content/dam/cals_vt_edu/sesqui/4-h-new.png","old-alt":"Black and white photo of two girls standing behind a hog at 4-H show","new-alt":"Girl bottle-feeding hog","title":"4-H Livestock shows","subtitle":"A family tradition for generations of Virginians"},{"old-photo":"/content/dam/cals_vt_edu/sesqui/4-h-corn.png","new-photo":"/content/dam/cals_vt_edu/sesqui/corn-new.png","old-alt":"Black and white photo of group of men walking through corn field","new-alt":"Photo of a woman standing in the middle of a corn field holding basket on hip and smiling","title":"Virginia corn","subtitle":"Teaching cultivation of the commonwealth's original crop"}];
+
+    function offset(){
+
+        if ($(window).width() >= 1522){
+
+            var offset1 = $("#calsBlocks > div > div:nth-child(2) > div.col-md-6.quad > div:nth-child(1)").offset().left;
+            var offset2 = $("#calsBlocks > div > div:nth-child(2) > div:nth-child(3)").offset().left;
+            var diff = offset1 - offset2;
+            $("#calsBlocks > div > div:nth-child(2) > div:nth-child(1)").css("margin-left",diff + "px");
+
+        } else {
+
+            $("#calsBlocks > div > div:nth-child(2) > div:nth-child(1)").css("margin-left","0px");
+        }
+    }
+    
+
+    //Preload the images
+    var preloadCounter = 0;
+    
+    function preload(){
+
+        imageObj = new Image();
+
+        images = new Array();
+
+        for (f = 0; f < features.length; f++){
+            images[preloadCounter] = features[f]["old-photo"];
+            images[preloadCounter + 1] = features[f]["new-photo"];
+            preloadCounter += 2;
+        }
+
+        //Start preloading
+        for(i = 0; i < images.length; i++) {
+
+          imageObj.src=images[i];
+        }
+    } 
+
+    preload();
+
+
+    //Shuffle the features to start
+    features = shuffle(features);
+
+
+    //Populate the blocks
+    function populateBlocks(tag){
+
+        var arr, func;
+
+       
+        arr = features;
+
+
+        $("#calsBlocks .feature").each(function(index){
+            
+            if (!$(this).hasClass("blank")){
+
+               if (!$(this).attr("id")){
+                    
+                    $(this).find(".overlay").css("background",colors[Math.floor(Math.random() * colors.length)]);
+
+                    $(this).find(".img").each(function(img){
+                        
+                        if ($(this).parent().hasClass("front") || $(this).parent().hasClass("back")){
+                            $(this).css("background", "url('" + arr[index]["new-photo"] + "')").attr("aria-label",arr[index]["new-alt"]); 
+                        } else {
+                            $(this).css("background", "url('" + arr[index]["old-photo"] + "')").attr("aria-label",arr[index]["old-alt"]); 
+                        }
+                    });
+
+                    $(this).find(".paragraph-container h4").html(arr[index]["title"] + "<br><span class='subtext'>" + arr[index]["subtitle"] + "</span>");
+                 
+
+               } else {
+                    
+                    $(this).find(".overlay").css("background","rgba(0,0,0,.6");
+                    
+                    $(this).find(".img").each(function(img){
+                        
+                        if ($(this).parent().hasClass("front") || $(this).parent().hasClass("back")){
+                            $(this).css("background", "url('" + arr[index]["new-photo"] + "')").attr("aria-label",arr[index]["new-alt"]); 
+                        } else {
+                            $(this).css("background", "url('" + arr[index]["old-photo"] + "')").attr("aria-label",arr[index]["old-alt"]); 
+                        }
+                        
+                    });
+
+                    $(this).find(".paragraph-container h2").html(arr[index]["title"] + "<br><span class='subtext'>" + arr[index]["subtitle"] + "</span>");
+               }
+            }
+        });
+    }
+
+    populateBlocks();
+
+
+    /*$(document).on("click","a.dropdown-item", function(){
+        populateBlocks($(this).attr("val"));
+    });*/
+
+
+    $("#shuffle").click(function(){
+        $("#shuffle svg").removeClass("cals-spin").addClass("cals-spin");
+        features = shuffle(features);
+        populateBlocks();
+    });
+
+    //Rotation
+    var els = ["#calsBlock-lg-feature", "#calsBlock-md-feature"];
+
+    var click = 0;
+    var cube, index;
+
+    function initRotate(el, blockClass, blockIndex){
+
+        if (blockClass){
+           el = blockClass + ":eq(" + blockIndex + ")";
+        }
+
+        var width = $(el).outerHeight();
+
+        console.log("width is " + width);
+
+        var sides = [{"css":{"-webkit-transform": "translateZ(-" + width / 2 + "px) rotateX(0deg)"},"side": "front"},{"css":{"-webkit-transform": "translateZ(-" + width / 2 + "px) rotateX(90deg)"},"side": "back"},{"css":{"-webkit-transform": "translateZ(-" + width / 2 + "px) rotateX(180deg)"},"side": "top"},{"css":{"-webkit-transform": "translateZ(-" + width / 2 + "px) rotateX(270deg)"},"side": "bottom"}];
+
+        $(el).css({"height":width + "px !important", "-webkit-transform":"translateZ(-" + width / 2 + "px"});
+
+        $(el).find(".front").css("-webkit-transform", "rotateY(0deg) translateZ(" + width / 2 + "px)");
+
+        $(el).find(".back").css("-webkit-transform", "rotateX(180deg) translateZ(" + width / 2 + "px)");
+        $(el).find(".top").css("-webkit-transform", "rotateX(90deg) translateZ(" + width / 2 + "px)");
+        $(el).find(".bottom").css("-webkit-transform", "rotateX(-90deg) translateZ(" + width / 2 + "px)");
+
+
+        $("body").on("click", el, function() {
+
+            console.log("clicked");
+
+            //Search cubes for the index of the cube that's within the parent clicked on
+            function searchCubes(el){
+
+                var cubeIndex;
+
+                if (el.toString().indexOf("#") > -1){
+
+                    var elId = el.toString();
+
+                    $(".cube").each(function(index, element){
+                        
+                        //Find the matching parent
+                        if ($(this).parent().attr("id") == elId){
+                            cubeIndex = $(".cube").index($(this));
+                        }
+                    });
+
+
+                } else if (el.toString().indexOf(".") > -1){
+
+                    var elClass = el.toString().split(":eq")[0].split(".")[1];
+                    var elIndex = el.toString().split(":eq(")[1].split(")")[0];
+
+                    $(".cube").each(function(index, element){
+                        
+                        //Find the matching parent
+                        var parentClasses = $(this).parent().attr("class").split(/\s+/);
+
+                        //If the cube parent has the class we're looking for
+                        if (parentClasses.indexOf(elClass) > -1){
+
+                            //If the parent index matches the index we're looking for
+                            var parentIndex = $("." + elClass).index($(this).parent());
+                            
+                            if (parentIndex == elIndex){
+
+                                cubeIndex = $(".cube").index($(this));
+                            };
+                        };
+                    });
+
+                    
+                }
+
+                return cubeIndex;
+            }
+
+            var i = searchCubes(el);
+
+            function increment(c){
+                var rotate = 360 + (90 * (index - sides.length + 1));
+
+                console.log(rotate);
+
+                $(c).css("-webkit-transform", "translateZ(-" + width / 2 + "px) rotateX(" + rotate + "deg)");
+                index ++;
+            }
+      
+            //First click
+            if (click == 0){
+
+                console.log("first click");
+
+                //Cube equals the index of the element
+                cube = i;
+
+                //Get the side attribute
+                var side = $(el).find(".cube").attr("side");
+
+                //Index var is the position of the side in the array of sides
+                index = sides.findIndex(s => s.side === side); 
+                
+                //Get the rotation from the array
+                var rotate = parseInt(JSON.stringify(sides[index].css).split("rotateX(")[1].split("deg")[0]) + 90;
+
+                //Rotate the cube
+                $(el).find(".cube").css("-webkit-transform", "translateZ(-" + width / 2 + "px) rotateX(" + rotate + "deg)").attr("side",sides[index + 1].side);
+
+                //Increment the click so we know it's not the first click anymore
+                click ++;
+       
+            //Not first click
+            } else {
+
+                console.log("not first click");
+
+                //If it's the same cube
+                if (cube == i){
+
+                    //If you've gone through all the sides
+                    if (index > sides.length - 1){
+
+                        increment($(el).find(".cube"));
+
+                    //If you haven't gone through all the sides
+                    } else {
+
+                        var side = $(el).find(".cube").attr("side");
+
+                        index = sides.findIndex(s => s.side === side); 
+         
+                        var rotate = parseInt(JSON.stringify(sides[index].css).split("rotateX(")[1].split("deg")[0]) + 90;
+
+                        if (index + 1 <= sides.length - 1){
+
+                            $(el).find(".cube").css("-webkit-transform", "translateZ(-" + width / 2 + "px) rotateX(" + rotate + "deg)").attr("side",sides[index + 1].side);
+                        } else {
+                            increment($(el).find(".cube"));
+                        }
+                    }
+
+                //Different cube
+                } else {
+        
+                    cube = i;
+
+                    var side = ($(el).find(".cube").attr("side"));
+
+                    index = sides.findIndex(s => s.side === side); 
+
+                    var rotate = parseInt(JSON.stringify(sides[index].css).split("rotateX(")[1].split("deg")[0]) + 90;
+
+                    if (index + 1 <= sides.length - 1){
+                        $(el).find(".cube").css("-webkit-transform", "translateZ(-" + width / 2 + "px) rotateX(" + rotate + "deg)").attr("side",sides[index + 1].side);
+                    } else {
+                        increment($(el).find(".cube"));
+                    }
+                }
+            }
+        });
+    }
+
+    els.forEach(function(el){
+        initRotate(el);
+    });
+
+    $(".sm-block").each(function(index){
+        initRotate(null, ".sm-block", index);
+    });
+
+    function resize(){
+
+        if ($(".quad").is(":empty")){
+            console.log("IT'S EMPTY");
+        }
+
+        //Resize the width of the slider
+        var articleWidth = $(".vt-articleImage").width();
+        var articleHeight = $(".vt-articleImage").height();
+
+        $(".juxtapose-0").width(articleWidth).height(articleHeight);
+
+        if ($(window).width() < 1428  && !($(".quad").is(":empty"))){
+            $(".quad > div").each(function() {
+                $(this).insertBefore($(".quad"));
+            });
+
+            $(".quad").empty();
+
+            $("body").unbind("click");
+
+            els.forEach(function(el){
+                initRotate(el);
+            });
+
+            $(".sm-block").each(function(index){
+                initRotate(null, ".sm-block", index);
+            });
+        } else if ($(window).width() < 1065){
+
+            $("body").unbind("click");
+
+            els.forEach(function(el){
+                initRotate(el);
+            });
+
+            $(".sm-block").each(function(index){
+                initRotate(null, ".sm-block", index);
+            });
+
+        } else if ($(window).width() >= 1428  && $(".quad").is(":empty")) {
+            $(".quad-feature").each(function(){
+                $(".quad").append($(this));
+            });
+
+            $("body").unbind("click");
+
+            els.forEach(function(el){
+                initRotate(el);
+            });
+
+            $(".sm-block").each(function(index){
+                initRotate(null, ".sm-block", index);
+            });
+        }
+
+    }
+
+    $(document).ready(function(){
+        offset();
+        resize();
+    });
+    $(window).resize(function(){
+        resize();
+        offset();
+    });
+</script>
+
+
+
