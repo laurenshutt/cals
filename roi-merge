@@ -1,0 +1,78 @@
+/*
+|----------------------------------------------------------------
+| ROI RESPONSES TO FOLDERS
+|----------------------------------------------------------------
+|
+| DOCUMENT INFORMATION
+|  - Last updated: November 2022
+|  - Client: Zeke Barlow, CALS C&M
+|  - Author: Lauren Shutt <lauren.e.shutt@gmail.com>
+*/
+
+//2022 there was an issue with email addresses being the same across rendered docs
+
+var data = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Responses").getDataRange().getValues();
+var folder = DriveApp.getFolderById("1T2fxJIpnDQb4W1JsJZ8NddHMzwviCAr9");
+
+function createROIs(){
+
+  //Start at 1 to account for the header
+  for (var i = 1; i < data.length; i++){
+
+    var office = data[i][0];
+    var name = data[i][1];
+    var email = data[1][2];
+    var phone = data [i][3];
+    var impactSummary = data[i][4];
+    var caption = data[i][5];
+    var agentQuote = data[i][6];
+    var agentQuoteName = data[i][7];
+    var agentQuoteTitle = data[i][8];
+    var stakeHolderQuote = data[i][9];
+    var stakeHolderName = data[i][10];
+    var stakeHolderTitle = data[i][11];
+    var officeEmail = data[i][12];
+    var officeWebsite = data[i][13];
+    var officePhone = data[i][14];
+    var officeAddress = data[i][15];
+    var socialMedia = data[i][16];
+    var statDesc = data[i][17];
+    var stat = data[i][18];
+
+    var text = [];
+    text.push({"Agent information": name + "\n" + email + "\n" + phone, "Impact statement": impactSummary,"Image caption": caption,"Agent quote": agentQuote + "\n" + agentQuoteName + "\n" + agentQuoteTitle,"Stakeholder quote": stakeHolderQuote + "\n" + stakeHolderName + "\n" + stakeHolderTitle,"Office information": officeEmail + "\n" + officeWebsite + "\n" + officePhone + "\n\n" + officeAddress,"Social media": socialMedia, "Statistic": stat + "\n" + statDesc});
+
+    //https://stackoverflow.com/questions/15180842/create-a-google-doc-in-a-specific-folder
+    var doc = DocumentApp.create(office);
+    var docID = DriveApp.getFileById(doc.getId());
+
+    // Copy doc to the directory we want it to be in. Delete it from root.
+    folder.createFolder(office).addFile(docID);
+    DriveApp.getRootFolder().removeFile(docID);
+
+    var folders = folder.getFolders();
+
+    //Get the new ID of the document and then open the document
+    while (folders.hasNext()){
+      childFolder = folders.next();
+      if (childFolder.getName() == office){
+
+        var files = childFolder.getFiles();
+        while (files.hasNext()){
+          docID = files.next().getId();
+          doc = DocumentApp.openById(docID);
+        }
+      }
+    };
+
+    var body = doc.getActiveSection();
+
+    body.appendParagraph(office).setHeading(DocumentApp.ParagraphHeading.HEADING1);
+
+    Object.keys(text[0]).forEach(function(key) {
+      body.appendParagraph(String(key)).setHeading(DocumentApp.ParagraphHeading.HEADING2);
+      body.appendParagraph(String(text[0][key]));
+    });
+  }
+}
+
